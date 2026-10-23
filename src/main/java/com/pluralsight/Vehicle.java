@@ -15,6 +15,14 @@ public class Vehicle {
         this.price = 0;
     }
 
+    public Vehicle(long vehicleID, String makeModel, String color, int odometerReading, double price) {
+        this.vehicleID = vehicleID;
+        this.makeModel = makeModel;
+        this.color = color;
+        this.odometerReading = odometerReading;
+        this.price = price;
+    }
+
     public long getVehicleID() {
         return vehicleID;
     }
