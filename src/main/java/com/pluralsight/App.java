@@ -12,13 +12,15 @@ public class App {
         vehicles[4] = new Vehicle(101125, "Subaru Outback", "Green", 55000, 9700);
         vehicles[5] = new Vehicle(101126, "Jeep Wrangler", "Yellow", 30000, 16000);
 
-        int count = 6;
-        System.out.println(vehicles[0]);
+        listAllVehicles(vehicles);
 
-        // Print all vehicles
+    }
+
+    public static void listAllVehicles(Vehicle[] vehicles){
+        int count = 6;
+
         for (int index = 0; index < count; index++){
             System.out.println(vehicles[index]);
         }
     }
-
 }
