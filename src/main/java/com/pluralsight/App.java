@@ -6,10 +6,10 @@ public class App {
     public static void main(String[] args) {
         Scanner inputScanner = new Scanner(System.in);
 
+        // Method to pull vehicles
         Vehicle[] vehicles = createVehicles();
 
-        //listAllVehicles(vehicles);
-
+        // Menu
         int command = 0;
 
         while (command != 5){
@@ -18,10 +18,14 @@ public class App {
             System.out.println("3 - Search by price range");
             System.out.println("4 - Search by color");
             System.out.println("5 - Quit");
+            System.out.println("Input 1-5: ");
             command = inputScanner.nextInt();
             inputScanner.nextLine();
+
             switch (command) {
-                case 1 ->  listAllVehicles(vehicles);
+                case 1 -> listAllVehicles(vehicles);
+                case 2 -> findVehiclesByMakeModel(vehicles, inputScanner);
+                case 3 -> findVehiclesByColor(vehicles, inputScanner);
                 case 5 -> System.out.println("Goodbye!");
                 default -> System.out.println("Command is invalid");
             }
@@ -30,6 +34,7 @@ public class App {
         }
     }
 
+    // Actual Method for Vehicles
     private static Vehicle[] createVehicles() {
         Vehicle[] vehicles = new Vehicle[20];
 
@@ -42,6 +47,7 @@ public class App {
         return vehicles;
     }
 
+    // Print all vehicles method
     public static void listAllVehicles(Vehicle[] vehicles) {
         int count = 6;
 
@@ -49,4 +55,45 @@ public class App {
             System.out.println(vehicles[index]);
         }
     }
+
+    // Method to find vehicle by make and model
+    public static void findVehiclesByMakeModel(Vehicle[] vehicles, Scanner inputScanner){
+
+        System.out.println("Enter make and model to search for: ");
+        String searchMakeModel = inputScanner.nextLine();
+
+        boolean found = false;
+
+        for (Vehicle currentVehicle : vehicles){
+            if (currentVehicle != null && currentVehicle.getMakeModel().equalsIgnoreCase(searchMakeModel)){
+                System.out.println("Match found: " + currentVehicle);
+                found = true;
+            }
+        }
+        if (!found){
+            System.out.println("No vehicles found matching: " + searchMakeModel);
+        }
+
+    }
+
+    // Method to find vehicle by color
+    public static void findVehiclesByColor(Vehicle[] vehicles, Scanner inputScanner){
+
+        System.out.println("Enter color to search for: ");
+        String searchColor = inputScanner.nextLine();
+
+        boolean found = false;
+
+        for (Vehicle currentVehicle : vehicles){
+            if (currentVehicle != null && currentVehicle.getColor().equalsIgnoreCase(searchColor)){
+                System.out.println("Match found: " + currentVehicle);
+                found = true;
+            }
+        }
+        if (!found){
+            System.out.println("No vehicles found matching: " + searchColor);
+        }
+
+    }
+
 }
