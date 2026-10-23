@@ -10,10 +10,15 @@ public class App {
         vehicles[2] = new Vehicle(101123, "Chevrolet Malibu", "Black", 50000, 9700);
         vehicles[3] = new Vehicle(101124, "Honda Civic", "White", 70000, 7500);
         vehicles[4] = new Vehicle(101125, "Subaru Outback", "Green", 55000, 9700);
-        vehicles[5] = new Vehicle(101126, "Jeep Wrangel", "Yellow", 30000, 16000);
+        vehicles[5] = new Vehicle(101126, "Jeep Wrangler", "Yellow", 30000, 16000);
 
         int count = 6;
         System.out.println(vehicles[0]);
+
+        // Print all vehicles
+        for (int index = 0; index < count; index++){
+            System.out.println(vehicles[index]);
+        }
     }
 
 }
