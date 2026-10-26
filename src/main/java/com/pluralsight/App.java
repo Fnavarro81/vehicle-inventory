@@ -12,6 +12,7 @@ public class App {
         // Menu
         int command = 0;
 
+        // Commands
         while (command != 5){
             System.out.println("1 - List all vehicles");
             System.out.println("2 - Search by make/model");
@@ -22,6 +23,8 @@ public class App {
             command = inputScanner.nextInt();
             inputScanner.nextLine();
 
+
+            // Case to call each method for specific input
             switch (command) {
                 case 1 -> listAllVehicles(vehicles);
                 case 2 -> findVehiclesByMakeModel(vehicles, inputScanner);
