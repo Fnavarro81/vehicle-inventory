@@ -25,11 +25,11 @@ public class App {
             switch (command) {
                 case 1 -> listAllVehicles(vehicles);
                 case 2 -> findVehiclesByMakeModel(vehicles, inputScanner);
-                case 3 -> findVehiclesByColor(vehicles, inputScanner);
+                case 3 -> findVehiclesByPriceRange(vehicles, inputScanner);
+                case 4 -> findVehiclesByColor(vehicles, inputScanner);
                 case 5 -> System.out.println("Goodbye!");
                 default -> System.out.println("Command is invalid");
             }
-
 
         }
     }
@@ -94,6 +94,32 @@ public class App {
             System.out.println("No vehicles found matching: " + searchColor);
         }
 
+    }
+
+    // Find vehicles by price range
+    public static void findVehiclesByPriceRange(Vehicle[] vehicles, Scanner inputScanner){
+
+        System.out.println("Enter minimum price: ");
+        double minPrice = inputScanner.nextDouble();
+        inputScanner.nextLine();
+
+        System.out.println("Enter maximum price: ");
+        double maxPrice = inputScanner.nextDouble();
+        inputScanner.nextLine();
+
+        System.out.println("\nSearching for vehicles between $" + minPrice + " and $" + maxPrice);
+
+        boolean found = false;
+
+        for (Vehicle vehicle : vehicles){
+            if (vehicle != null && vehicle.getPrice() >= minPrice && vehicle.getPrice() <= maxPrice){
+                System.out.println(vehicle);
+                found = true;
+            }
+        }
+        if (!found){
+            System.out.println("No vehicles found within that price range.");
+        }
     }
 
 }
